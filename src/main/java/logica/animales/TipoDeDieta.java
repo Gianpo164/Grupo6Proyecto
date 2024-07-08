@@ -1,4 +1,4 @@
-package logica;
+package logica.animales;
 
 public enum TipoDeDieta {
     CARNIVORO,
