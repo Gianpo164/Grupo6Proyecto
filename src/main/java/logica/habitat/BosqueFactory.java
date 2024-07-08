@@ -1,4 +1,4 @@
-package logica;
+package logica.habitat;
 
 public class BosqueFactory implements HabitatFactory{
     public BosqueFactory() {}

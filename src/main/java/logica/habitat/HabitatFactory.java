@@ -1,4 +1,4 @@
-package logica;
+package logica.habitat;
 
 public interface HabitatFactory {
     public Habitat crearSmallHabitat();

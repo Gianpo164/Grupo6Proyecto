@@ -1,4 +1,4 @@
-package logica;
+package logica.habitat;
 
 public class DesiertoFactory implements HabitatFactory{
     public DesiertoFactory() {}
