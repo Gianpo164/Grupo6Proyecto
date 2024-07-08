@@ -4,6 +4,9 @@ import logica.animales.Animal;
 
 import java.util.ArrayList;
 
+/**
+ * Implementacion de un habitat grande
+ */
 public class LargeHabitat implements Habitat{
     private int comidaCarne = 300;
     private int comidaHierba = 300;;
@@ -23,7 +26,6 @@ public class LargeHabitat implements Habitat{
             for (Animal i : animalesContenidos)
                 i.comprobacionGrupo();
         }
-        /*Dependiendo de como avance el proyecto, incluir excepcion custom*/
     }
 
     @Override

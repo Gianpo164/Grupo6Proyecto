@@ -1,5 +1,8 @@
 package logica.habitat;
 
+/**
+ * Implementa una fabrica con el tipo de habitat monte
+ */
 public class MonteFactory implements HabitatFactory{
     public MonteFactory() {}
 

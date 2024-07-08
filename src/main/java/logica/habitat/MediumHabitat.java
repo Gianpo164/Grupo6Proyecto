@@ -4,6 +4,9 @@ import logica.animales.Animal;
 
 import java.util.ArrayList;
 
+/**
+ * Implementacion de un habitat mediano
+ */
 public class MediumHabitat implements Habitat{
     private int comidaCarne = 200;
     private int comidaHierba = 200;

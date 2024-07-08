@@ -1,5 +1,8 @@
 package logica.habitat;
 
+/**
+ * Implementa una fabrica con el tipo de habitat polar
+ */
 public class PolarFactory implements HabitatFactory{
     public PolarFactory() {}
 

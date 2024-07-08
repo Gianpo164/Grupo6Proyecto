@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+/**
+ * Enumeracion de animales disponibles
+ */
 public enum EnumAnimales {
     ALPACA(TipoDeHabitat.MONTE, "Alpaca") {
         @Override
@@ -122,6 +125,11 @@ public enum EnumAnimales {
     private ImageIcon icono;
     private ArrayList<ImageIcon> imagenes = new ArrayList<>();
 
+    /**
+     * Asigna atributos de animales
+     * @param tipoDeHabitat Habitat correspondiente
+     * @param animal Animal al que representa
+     */
     EnumAnimales(TipoDeHabitat tipoDeHabitat, String animal) {
         this.tipoDeHabitat = tipoDeHabitat;
         icono = new ImageIcon("src/main/resources/icons/"+animal+"Icon.png");
@@ -131,18 +139,41 @@ public enum EnumAnimales {
 
     }
 
+    /**
+     * Crea un animal dentro de un habitat
+     * @param habitat Habitat en el que se creara el animal
+     */
     public abstract void crearAnimal(Habitat habitat);
 
+     /**
+      * Devuelve el icono de un animal
+     * @return el icono de un animal
+     */
     public ImageIcon getIcon() {
         return icono;
     }
+
+    /**
+     * Devuelve a lista de las imagenes de los animales
+     * @return la lista de las imagenes de los animales
+     */
     public ArrayList<ImageIcon> getImagenes() {
         return imagenes;
     }
+
+    /**
+     * Devuelve el tipo de habitat correspondiente al animal
+     * @return el tipo de habitat correspondiente al animal
+     */
     public TipoDeHabitat getTipoDeHabitat() {
         return tipoDeHabitat;
     }
 
+    /**
+     * Prepara una imagen para ser modificada
+     * @param img Imagen de animal
+     * @return imagen capaz de ser modificada
+     */
     public static BufferedImage toBufferedImage(Image img)
     {
         if (img instanceof BufferedImage)
@@ -158,6 +189,12 @@ public enum EnumAnimales {
 
         return bimage;
     }
+
+    /**
+     * Voltea horizontalmente una imagen
+     * @param img Imagen a voltear
+     * @return imgaen volteada
+     */
     public static BufferedImage horizontalFlip(BufferedImage img) {
         int w = img.getWidth();
         int h = img.getHeight();

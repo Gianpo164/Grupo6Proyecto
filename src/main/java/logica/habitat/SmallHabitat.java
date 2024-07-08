@@ -4,6 +4,9 @@ import logica.animales.Animal;
 
 import java.util.ArrayList;
 
+/**
+ * Implementacion de un habitat chico
+ */
 public class SmallHabitat implements Habitat{
     private int comidaCarne = 100;
     private int comidaHierba = 100;
