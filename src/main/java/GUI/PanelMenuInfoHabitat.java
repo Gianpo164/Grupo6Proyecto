@@ -15,7 +15,7 @@ public class PanelMenuInfoHabitat extends PanelMenu{
     public PanelMenuInfoHabitat(Habitat habitat, PanelPrincipal panelPrincipal) {
         this.habitat = habitat;
         imagenInfoHabitat = new ImageIcon(getClass().getClassLoader().getResource("InfoHabitat.png")).getImage();
-        PanelGenaralInfo panelInfo = new PanelGenaralInfo(habitat,panelPrincipal);
+        PanelGeneralInfo panelInfo = new PanelGeneralInfo(habitat,panelPrincipal);
 
         PanelAddAnimales menuAnimales = new PanelAddAnimales(habitat);
 

@@ -7,12 +7,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BotonHabitat extends JButton implements ActionListener{
+public class HabitatButton extends JButton implements ActionListener{
     private HabitatFactory fabrica;
     private PanelBaseHabitat panelBase;
     private Image imagen;
 
-    public BotonHabitat(TipoDeHabitat habitat, PanelBaseHabitat panelBase) {
+    public HabitatButton(TipoDeHabitat habitat, PanelBaseHabitat panelBase) {
         switch (habitat) {
             case BOSQUE -> {
                 setText("Bosque");

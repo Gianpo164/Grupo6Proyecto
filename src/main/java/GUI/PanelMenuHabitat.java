@@ -1,5 +1,6 @@
 package GUI;
 
+import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
 import javax.swing.*;
@@ -85,12 +86,12 @@ public class PanelMenuHabitat extends PanelMenu {
         panelBotones.setOpaque(false);
         panelBotones.setBounds(24,170,450,590);
         panelBotones.setLayout(new GridLayout(3,2,60,60));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.BOSQUE, panelBaseHabitat));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.MONTE, panelBaseHabitat));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.POLAR, panelBaseHabitat));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.DESIERTO, panelBaseHabitat));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.SABANA, panelBaseHabitat));
-        panelBotones.add(new BotonHabitat(TipoDeHabitat.TROPICAL, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.BOSQUE, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.MONTE, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.POLAR, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.DESIERTO, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.SABANA, panelBaseHabitat));
+        panelBotones.add(new HabitatButton(TipoDeHabitat.TROPICAL, panelBaseHabitat));
 
 
         add(titulo);

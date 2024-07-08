@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class PanelGenaralInfo extends JPanel {
+public class PanelGeneralInfo extends JPanel {
     private Habitat habitat;
     private Font fuente;
     private JTextField tipoHabitat;
@@ -18,7 +18,7 @@ public class PanelGenaralInfo extends JPanel {
     private Image imagenCarne = new ImageIcon("src/main/resources/Carne.png").getImage();
     private Image imagenHierba = new ImageIcon("src/main/resources/Hierba.png").getImage();
 
-    public PanelGenaralInfo(Habitat habitat, PanelPrincipal panelPrincipal) {
+    public PanelGeneralInfo(Habitat habitat, PanelPrincipal panelPrincipal) {
         this.habitat = habitat;
         setPreferredSize(new Dimension(500, 150));
         setLayout(null);
