@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Cebra extends Animal{
-    public Cebra(Habitat habitat) {
-        super(habitat);
+    public Cebra(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Cebra";
         descripcion = "Presa indefensa";
         dieta = TipoDeDieta.HERBIVORO;

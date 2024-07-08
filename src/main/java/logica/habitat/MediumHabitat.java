@@ -5,8 +5,8 @@ import logica.animales.Animal;
 import java.util.ArrayList;
 
 public class MediumHabitat implements Habitat{
-    private int comidaCarne = 0;
-    private int comidaHierba = 0;
+    private int comidaCarne = 200;
+    private int comidaHierba = 200;
     private ArrayList<Animal> animalesContenidos;
     private SizeHabitat sizeHabitat = SizeHabitat.MEDIUM_HORIZONTAL;
     private TipoDeHabitat habitat;
@@ -57,6 +57,30 @@ public class MediumHabitat implements Habitat{
     @Override
     public void setComidaHierba(int comidaHierba) {
         this.comidaHierba = comidaHierba;
+    }
+
+    @Override
+    public boolean comerCarne() {
+        if (comidaCarne != 0) {
+            comidaCarne -= 5;
+            if (comidaCarne < 0) {
+                comidaCarne = 0;
+            }
+            return true;
+        } else
+            return false;
+    }
+
+    @Override
+    public boolean comerHierba() {
+        if (comidaHierba != 0) {
+            comidaHierba -= 5;
+            if (comidaHierba < 0) {
+                comidaHierba = 0;
+            }
+            return true;
+        } else
+            return false;
     }
 
     @Override

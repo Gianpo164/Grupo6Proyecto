@@ -5,8 +5,8 @@ import logica.animales.Animal;
 import java.util.ArrayList;
 
 public class LargeHabitat implements Habitat{
-    private int comidaCarne = 0;
-    private int comidaHierba = 0;;
+    private int comidaCarne = 300;
+    private int comidaHierba = 300;;
     private ArrayList<Animal> animalesContenidos;
     private SizeHabitat sizeHabitat = SizeHabitat.LARGE;
     private TipoDeHabitat habitat;
@@ -23,7 +23,7 @@ public class LargeHabitat implements Habitat{
             for (Animal i : animalesContenidos)
                 i.comprobacionGrupo();
         }
-        /*Dependeinedo de como avance el proyecto, incluir excepcion custom*/
+        /*Dependiendo de como avance el proyecto, incluir excepcion custom*/
     }
 
     @Override
@@ -57,6 +57,30 @@ public class LargeHabitat implements Habitat{
     @Override
     public void setComidaHierba(int comidaHierba) {
         this.comidaHierba = comidaHierba;
+    }
+
+    @Override
+    public boolean comerCarne() {
+        if (comidaCarne != 0) {
+            comidaCarne -= 5;
+            if (comidaCarne < 0) {
+                comidaCarne = 0;
+            }
+            return true;
+        } else
+            return false;
+    }
+
+    @Override
+    public boolean comerHierba() {
+        if (comidaHierba != 0) {
+            comidaHierba -= 5;
+            if (comidaHierba < 0) {
+                comidaHierba = 0;
+            }
+            return true;
+        } else
+            return false;
     }
 
     @Override

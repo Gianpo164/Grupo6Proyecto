@@ -13,6 +13,8 @@ public interface Habitat {
     public void setComidaCarne(int comidaCarne);
     public int getComidaHierba();
     public void setComidaHierba(int comidaHierba);
+    public boolean comerCarne();
+    public boolean comerHierba();
     public SizeHabitat getSizeHabitat();
     public void setSizeHabitat(SizeHabitat sizeHabitat);
     public TipoDeHabitat getTipoDeHabitat();

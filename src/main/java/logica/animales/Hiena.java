@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Hiena extends Animal{
-    public Hiena(Habitat habitat) {
-        super(habitat);
+    public Hiena(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Hiena";
         descripcion = "Son bastante alegres";
         dieta = TipoDeDieta.CARNIVORO;

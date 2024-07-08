@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Capibara extends Animal{
-    public Capibara(Habitat habitat) {
-        super(habitat);
+    public Capibara(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Capibara";
         descripcion = "El animal más amigable del mundo!";
         dieta = TipoDeDieta.HERBIVORO;

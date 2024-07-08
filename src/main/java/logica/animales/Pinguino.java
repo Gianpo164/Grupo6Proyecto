@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Pinguino extends Animal{
-    public Pinguino(Habitat habitat) {
-        super(habitat);
+    public Pinguino(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Pingüino";
         descripcion = "Son aves que no pueden volar";
         dieta = TipoDeDieta.CARNIVORO;

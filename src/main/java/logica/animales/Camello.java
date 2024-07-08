@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Camello extends Animal{
-    public Camello(Habitat habitat) {
-        super(habitat);
+    public Camello(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Camello";
         descripcion = "Pueden llegar a beber 115 litros de agua";
         dieta = TipoDeDieta.HERBIVORO;

@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Ciervo extends Animal{
-    public Ciervo(Habitat habitat) {
-        super(habitat);
+    public Ciervo(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Ciervo";
         descripcion = "Sus cuernos se llaman cornamentas";
         dieta = TipoDeDieta.HERBIVORO;

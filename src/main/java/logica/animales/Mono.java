@@ -3,9 +3,12 @@ package logica.animales;
 import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Mono extends Animal{
-    public Mono(Habitat habitat) {
-        super(habitat);
+    public Mono(Habitat habitat, ArrayList<ImageIcon> imagen) {
+        super(habitat,imagen);
         nombre = "Mono";
         descripcion = "Existen muchas especies distintas de monos";
         dieta = TipoDeDieta.OMNIVORO;
