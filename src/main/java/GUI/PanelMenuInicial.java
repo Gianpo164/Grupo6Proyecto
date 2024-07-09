@@ -12,12 +12,13 @@ public class PanelMenuInicial extends PanelMenu {
     private Image imagenMenu;
     private Font fuente;
     private PanelEditorHabitat panelEditorHabitat;
+    private PanelNotificaciones panelNotificaciones;
     private JTextField titulo;
 
     public PanelMenuInicial(PanelPrincipal panelPrincipal, ArrayList habitats) {
         super();
         try {
-            fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(50f);
+            fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(60f);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (FontFormatException e) {
@@ -31,11 +32,13 @@ public class PanelMenuInicial extends PanelMenu {
         configurar(titulo);
         titulo.setText("Zoologico");
         titulo.setHorizontalAlignment(JTextField.CENTER);
-        titulo.setBounds(14,20,470,90);
+        titulo.setBounds(14,30,470,90);
 
         panelEditorHabitat = new PanelEditorHabitat(panelPrincipal.getPanelZoo(), habitats);
+        panelNotificaciones = new PanelNotificaciones(habitats);
         add(titulo);
         add(panelEditorHabitat);
+        add(panelNotificaciones);
     }
 
     private void configurar (JComponent j){
@@ -50,6 +53,7 @@ public class PanelMenuInicial extends PanelMenu {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         panelEditorHabitat.repaint();
+        panelNotificaciones.createNotificacion();
         g.drawImage(imagenMenu, 0, 0, null);
     }
 }
