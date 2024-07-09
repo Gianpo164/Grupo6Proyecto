@@ -16,6 +16,11 @@ public class PanelInfoAnimal extends JPanel{
     private PanelInfoAnimales panelInfoAnimales;
     private Habitat habitat;
     private Font fuente;
+    private JTextField nombre;
+    private JTextField descripcion;
+    private JTextField dieta;
+    private JTextField felicidad;
+    private JTextField hambre;
 
     public PanelInfoAnimal(Animal animal,Habitat habitat, PanelInfoAnimales panelInfoAnimales){
         this.setLayout(null);
@@ -35,35 +40,30 @@ public class PanelInfoAnimal extends JPanel{
         JLabel foto = new JLabel(animal.getImagenes().get(1));
         foto.setBounds(35,40,70, 70);
 
-        JTextField nombre = new JTextField();
+        nombre = new JTextField();
         configurar(nombre);
-        nombre.setText(animal.getNombre());
         nombre.setFont(fuente.deriveFont(15f));
-        nombre.setBounds(125,22,298,20);
+        nombre.setBounds(125,22,298,26);
 
-        JTextField descripcion = new JTextField();
+        descripcion = new JTextField();
         configurar(descripcion);
-        descripcion.setText(animal.getDescripcion());
         descripcion.setFont(fuente.deriveFont(10f));
-        descripcion.setBounds(125,42,298,20);
+        descripcion.setBounds(125,42,298,26);
 
-        JTextField dieta = new JTextField();
+        dieta = new JTextField();
         configurar(dieta);
-        dieta.setText("Dieta: "+animal.getDieta());
         dieta.setFont(fuente.deriveFont(15f));
-        dieta.setBounds(125,62,298,20);
+        dieta.setBounds(125,62,298,26);
 
-        JTextField felicidad = new JTextField();
+        felicidad = new JTextField();
         configurar(felicidad);
-        felicidad.setText("Felicidad: "+animal.getFelicidad());
         felicidad.setFont(fuente.deriveFont(15f));
-        felicidad.setBounds(125,82,298,20);
+        felicidad.setBounds(125,82,298,26);
 
-        JTextField hambre = new JTextField();
+        hambre = new JTextField();
         configurar(hambre);
-        hambre.setText("Hambre: "+animal.getHambre());
         hambre.setFont(fuente.deriveFont(15f));
-        hambre.setBounds(125,102,298,20);
+        hambre.setBounds(125,102,298,26);
 
         JButton eliminar = new JButton(new ImageIcon("src/main/resources/SalirButton.png"));
         eliminar.setBounds(423,18,41,40);
@@ -86,15 +86,21 @@ public class PanelInfoAnimal extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagenInfoAnimal, 0, 0, null);
+        nombre.setText(animal.getNombre());
+        descripcion.setText(animal.getDescripcion());
+        dieta.setText("Dieta: "+animal.getDieta());
+        felicidad.setText("Felicidad: "+animal.getFelicidad());
+        hambre.setText("Hambre: "+animal.getHambre());
     }
 
     public Animal getAnimal() {
         return animal;
     }
+
     private void configurar (JComponent j){
         j.setBorder(null);
         j.setFocusable(false);
-        j.setForeground(new Color(0,0,0));
+        j.setForeground(new Color(255,245,213));
         j.setOpaque(false);
     }
     private void eliminar(){
