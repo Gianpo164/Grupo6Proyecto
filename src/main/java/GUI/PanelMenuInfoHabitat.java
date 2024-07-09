@@ -10,15 +10,14 @@ public class PanelMenuInfoHabitat extends PanelMenu{
     private PanelInfoAnimales infoAnimales;
     private JScrollPane scrollPane;
     private Image imagenInfoHabitat;
+    private PanelAddAnimales menuAnimales;
 
 
     public PanelMenuInfoHabitat(Habitat habitat, PanelPrincipal panelPrincipal) {
         this.habitat = habitat;
         imagenInfoHabitat = new ImageIcon(getClass().getClassLoader().getResource("InfoHabitat.png")).getImage();
         PanelGeneralInfo panelInfo = new PanelGeneralInfo(habitat,panelPrincipal);
-
-        PanelAddAnimales menuAnimales = new PanelAddAnimales(habitat);
-
+        menuAnimales = new PanelAddAnimales(habitat);
         infoAnimales = new PanelInfoAnimales(habitat);
         scrollPane = new JScrollPane(infoAnimales);
         scrollPane.setPreferredSize(new Dimension(500, 500));

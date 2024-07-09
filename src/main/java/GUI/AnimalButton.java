@@ -43,5 +43,9 @@ public class AnimalButton extends JButton implements ActionListener{
         if (habitat.getSizeHabitat().getLimite() == habitat.getAnimals().size()) {
             setEnabled(false);
         }
+        if (habitat.getSizeHabitat().getLimite() > habitat.getAnimals().size()) {
+            setEnabled(true);
+        }
+
     }
 }
