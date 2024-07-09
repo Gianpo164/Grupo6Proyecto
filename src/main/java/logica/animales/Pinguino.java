@@ -14,7 +14,8 @@ public class Pinguino extends Animal{
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.POLAR;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 2;
     }
 
     public void comprobacionGrupo() {

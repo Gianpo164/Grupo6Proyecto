@@ -14,6 +14,7 @@ public class Jabali extends Animal{
         dieta = TipoDeDieta.OMNIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.BOSQUE;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 3;
     }
 }

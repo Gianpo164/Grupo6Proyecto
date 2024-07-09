@@ -14,6 +14,7 @@ public class PanteraNegra extends Animal{
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.TROPICAL;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 3;
     }
 }

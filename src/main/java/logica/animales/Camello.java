@@ -14,7 +14,8 @@ public class Camello extends Animal{
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.DESIERTO;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 2;
     }
 
     public void comprobacionGrupo() {

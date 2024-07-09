@@ -15,6 +15,7 @@ public class Ciervo extends Animal{
         hambre = 25;
         habitatPreferido = TipoDeHabitat.BOSQUE;
         felicidad = 0;
+        apetito = 1;
     }
 
     public void comprobacionGrupo() {

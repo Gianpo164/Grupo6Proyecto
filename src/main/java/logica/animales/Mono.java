@@ -14,7 +14,8 @@ public class Mono extends Animal{
         dieta = TipoDeDieta.OMNIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.TROPICAL;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 2;
     }
 
     public void comprobacionGrupo() {

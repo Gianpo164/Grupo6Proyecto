@@ -80,4 +80,16 @@ public interface Habitat {
      * @return el tipo de habitat
      */
     public TipoDeHabitat getTipoDeHabitat();
+
+    /**
+     * Asigna la temperatura del habitat
+     * @param grados
+     */
+    public void setTemperatura(int grados);
+
+    /**
+     * Devuelve la temperatura del habitat
+     * @return la temperatura
+     */
+    public int getTemperatura();
 }

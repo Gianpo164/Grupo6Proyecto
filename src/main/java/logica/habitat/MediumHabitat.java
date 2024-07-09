@@ -13,6 +13,7 @@ public class MediumHabitat implements Habitat{
     private ArrayList<Animal> animalesContenidos;
     private SizeHabitat sizeHabitat = SizeHabitat.MEDIUM_HORIZONTAL;
     private TipoDeHabitat habitat;
+    private int temperatura = 0;
 
     public MediumHabitat(TipoDeHabitat habitat) {
         animalesContenidos = new ArrayList<>();
@@ -99,5 +100,15 @@ public class MediumHabitat implements Habitat{
     @Override
     public TipoDeHabitat getTipoDeHabitat() {
         return habitat;
+    }
+
+    @Override
+    public void setTemperatura(int grados) {
+        temperatura = grados;
+    }
+
+    @Override
+    public int getTemperatura() {
+        return temperatura;
     }
 }

@@ -14,6 +14,7 @@ public class Serpiente extends Animal{
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.DESIERTO;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 2;
     }
 }

@@ -12,13 +12,15 @@ import java.util.Random;
  */
 public abstract class Animal {
     protected Random rand = new Random();
-    protected int ticks;
+    protected int ticksComer;
+    protected int ticksTemperatura;
     protected int estamina = 100;
     protected String nombre;
     protected String descripcion;
     protected TipoDeDieta dieta;
     protected int hambre;
-    protected int apetito = 50;
+    protected int apetito;
+    protected int temperatura;
     protected int sizeX;
     protected int sizeY;
     protected double objetivoPosicionX;
@@ -58,8 +60,11 @@ public abstract class Animal {
      * Representación de la alimentacion de un animal
      */
     public void comer() {
-        if (ticks > 1200) {
-            if (hambre > apetito) {
+        if (ticksComer == 100) {
+            if (hambre < 100){
+                hambre++;
+            }
+            if (hambre > 50) {
                 boolean comio = false;
                 if (dieta == TipoDeDieta.CARNIVORO) {
                     comio = habitat.comerCarne();
@@ -73,21 +78,37 @@ public abstract class Animal {
                         comio = habitat.comerHierba();
                     }
                 }
-                if (comio)
+                if (comio) {
+                    if (felicidad < 100){
+                        felicidad++;
+                    }
                     hambre = 0;
+                }else {
+                    if (felicidad > 0) {
+                        felicidad--;
+                    }
+                }
             }
-            hambre += 5;
-            if (hambre > 100) {
-                hambre = 100;
+            ticksComer = 0;
+        }
+        ticksComer++;
+    }
+
+    public void temperatura(){
+        if (ticksTemperatura == 200) {
+            temperatura = habitat.getTemperatura();
+            if (habitat.getTipoDeHabitat().getTemperaturaMinima() <= temperatura && temperatura <= habitat.getTipoDeHabitat().getTemperaturaMaxima()){
+                felicidad++;
+            }else {
                 felicidad--;
             }
-            ticks = 0;
+            ticksTemperatura = 0;
         }
-        ticks++;
+        ticksTemperatura++;
     }
 
     /**
-     * Devuelve el nnoombre del animal
+     * Devuelve el nombre del animal
      * @return el nombre del animal
      */
     public String getNombre() {

@@ -14,7 +14,8 @@ public class Cebra extends Animal{
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.SABANA;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 2;
     }
 
     public void comprobacionGrupo() {

@@ -13,6 +13,7 @@ public class SmallHabitat implements Habitat{
     private ArrayList<Animal> animalesContenidos;
     private SizeHabitat sizeHabitat = SizeHabitat.SMALL;
     private TipoDeHabitat habitat;
+    private int temperatura = 0;
 
     public SmallHabitat(TipoDeHabitat habitat) {
         animalesContenidos = new ArrayList<>();
@@ -99,5 +100,15 @@ public class SmallHabitat implements Habitat{
     @Override
     public TipoDeHabitat getTipoDeHabitat() {
         return habitat;
+    }
+
+    @Override
+    public void setTemperatura(int grados) {
+        temperatura = grados;
+    }
+
+    @Override
+    public int getTemperatura() {
+        return temperatura;
     }
 }

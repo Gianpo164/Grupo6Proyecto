@@ -14,7 +14,8 @@ public class Cabra extends Animal{
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.MONTE;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 1;
     }
 
     public void comprobacionGrupo() {

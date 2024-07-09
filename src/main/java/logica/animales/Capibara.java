@@ -14,7 +14,8 @@ public class Capibara extends Animal{
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.BOSQUE;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 1;
     }
 
     public void comprobacionGrupo() {

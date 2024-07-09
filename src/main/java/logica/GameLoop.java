@@ -1,14 +1,12 @@
 package logica;
 
 import GUI.PanelPrincipal;
-import GUI.Ventana;
-import logica.animales.Animal;
 import logica.habitat.Habitat;
 
 import java.util.ArrayList;
 
 /**
- * Ciclo que se encarga de actualizar la logica y rederizar la aplicacion
+ * Ciclo que se encarga de actualizar la logica y rederizar la aplicacion, los ticks por segundo determinan la velocidad del juego
  */
 public class GameLoop implements Runnable {
 
@@ -72,6 +70,7 @@ public class GameLoop implements Runnable {
                     for (int j = 0; j < y; j++) {
                         habitat.getAnimals().get(j).mover();
                         habitat.getAnimals().get(j).comer();
+                        habitat.getAnimals().get(j).temperatura();
                     }
                 }
             }

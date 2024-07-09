@@ -14,6 +14,7 @@ public class Leon extends Animal {
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.SABANA;
-        felicidad = 0;
+        felicidad = 25;
+        apetito = 3;
     }
 }
