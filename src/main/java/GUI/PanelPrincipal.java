@@ -41,7 +41,7 @@ public class PanelPrincipal extends JPanel {
             panelDibujar = panel;
         }
         add(panelDibujar, BorderLayout.EAST);
-        revalidate();//no tocar
+        //revalidate();    al parecer ya no es necesario
         repaint();
     }
 

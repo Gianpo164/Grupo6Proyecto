@@ -105,9 +105,6 @@ public class PanelInfoAnimal extends JPanel{
     }
     private void eliminar(){
         habitat.getAnimals().remove(animal);
-        panelInfoAnimales.removePanelesHabitat();
-        this.getParent().remove(this);
-
     }
     private class EscuchadorButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {

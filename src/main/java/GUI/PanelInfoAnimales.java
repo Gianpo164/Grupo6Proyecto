@@ -18,17 +18,15 @@ public class PanelInfoAnimales extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    private void addPanelesHabitat() {
+    private void calcularPanelesHabitat() {
         setSizePanel();
-        Animal animal = habitat.getAnimals().get(cantidadPaneles);
-        PanelInfoAnimal panelAnimal = new PanelInfoAnimal(animal,habitat,this);
-        add(panelAnimal);
-        cantidadPaneles++;
+        for (Animal animal : habitat.getAnimals()) {
+            PanelInfoAnimal panelAnimal = new PanelInfoAnimal(animal,habitat,this);
+            add(panelAnimal);
+            cantidadPaneles++;
+        }
     }
-    public void removePanelesHabitat(){
-        cantidadPaneles--;
-        setSizePanel();
-    }
+
     private void setSizePanel(){
         int height = 152 * habitat.getAnimals().size();
         if (height > 500) {
@@ -39,8 +37,11 @@ public class PanelInfoAnimales extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (habitat.getAnimals().size() > cantidadPaneles) {
-            addPanelesHabitat();
+        if (habitat.getAnimals().size() != cantidadPaneles) {
+            removeAll();
+            cantidadPaneles = 0;
+            calcularPanelesHabitat();
         }
+        setSizePanel();
     }
 }
