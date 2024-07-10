@@ -14,6 +14,7 @@ public class PanelMenuInicial extends PanelMenu {
     private PanelEditorHabitat panelEditorHabitat;
     private PanelNotificaciones panelNotificaciones;
     private JTextField titulo;
+    private int accumulator = 0;
 
     public PanelMenuInicial(PanelPrincipal panelPrincipal, ArrayList habitats) {
         super();
@@ -52,9 +53,12 @@ public class PanelMenuInicial extends PanelMenu {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        panelEditorHabitat.repaint();
-        panelNotificaciones.createNotificacion();
         g.drawImage(imagenMenu, 0, 0, null);
+        if (accumulator == 20){
+            panelNotificaciones.createNotificacion();
+            accumulator = 0;
+        }
+        accumulator++;
     }
 }
 
