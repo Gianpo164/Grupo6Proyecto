@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Hashtable;
 
 public class PanelGeneralInfo extends JPanel {
     private Habitat habitat;
@@ -14,6 +15,8 @@ public class PanelGeneralInfo extends JPanel {
     private JTextField size;
     private JTextField comidaCarne = new JTextField();
     private JTextField comidaHierba = new JTextField();
+    private JTextField tempText;
+    private JTextField tempValue;
     private JSlider tempSlider;
     private Image imagen = new ImageIcon("src/main/resources/GeneralInfoHabitat.png").getImage();
 
@@ -30,50 +33,63 @@ public class PanelGeneralInfo extends JPanel {
             e.printStackTrace();
         }
         tipoHabitat = new JTextField(habitat.getTipoDeHabitat().getNombre());
-        tipoHabitat.setFont(fuente);
+        configurar(tipoHabitat);
         tipoHabitat.setBounds(15, 10, 380, 50);
-        tipoHabitat.setOpaque(false);
-        tipoHabitat.setBorder(null);
-        tipoHabitat.setFocusable(false);
         add(tipoHabitat);
 
         size = new JTextField("Limite de animales: " + (habitat.getSizeHabitat().getLimite()));
+        configurar(size);
         size.setFont(fuente.deriveFont(18f));
-        size.setBounds(20, 60, 350, 30);
-        size.setOpaque(false);
-        size.setBorder(null);
-        size.setFocusable(false);
+        size.setBounds(20, 60, 250, 30);
         add(size);
 
+        configurar(comidaCarne);
         comidaCarne.setFont(fuente.deriveFont(18f));
         comidaCarne.setBounds(71, 100, 70, 30);
-        comidaCarne.setOpaque(false);
-        comidaCarne.setBorder(null);
-        comidaCarne.setFocusable(false);
         add(comidaCarne);
         ReabastecerComidaButton reabastecerCarne = new ReabastecerComidaButton(habitat, "Carne");
         reabastecerCarne.setBounds(20, 90, 50, 50);
         add(reabastecerCarne);
 
-
+        configurar(comidaHierba);
         comidaHierba.setFont(fuente.deriveFont(18f));
         comidaHierba.setBounds(216,100,70,30);
-        comidaHierba.setOpaque(false);
-        comidaHierba.setBorder(null);
-        comidaHierba.setFocusable(false);
         add(comidaHierba);
         ReabastecerComidaButton reabastecerHierba = new ReabastecerComidaButton(habitat, "Hierba");
         reabastecerHierba.setBounds(160, 90, 50, 50);
         add(reabastecerHierba);
 
-        tempSlider = new JSlider(SwingConstants.VERTICAL,-20,60,habitat.getTipoDeHabitat().getTemperaturaMinima());
-        tempSlider.setBounds(375,50,20,90);
+        tempSlider = new JSlider(SwingConstants.VERTICAL,-20,50,habitat.getTemperatura());
+        tempSlider.setBounds(250,75,120,65);
+        tempSlider.setMinorTickSpacing(10);
+        tempSlider.setLabelTable(tempSlider.createStandardLabels(10));
         tempSlider.setOpaque(false);
         add(tempSlider);
+
+        tempText = new JTextField("Temperatura");
+        configurar(tempText);
+        tempText.setBounds(300,55,110,30);
+        tempText.setFont(fuente.deriveFont(13f));
+        add(tempText);
+
+        tempValue = new JTextField();
+        tempValue.setBounds(330,75,100,60);
+        configurar(tempValue);
+        tempValue.setFont(fuente.deriveFont(24f));
+        add(tempValue);
 
         SalirPanelButton salirButton = new SalirPanelButton(panelPrincipal);
         salirButton.setBounds(440,10,40,40);
         add(salirButton);
+
+    }
+
+    private void configurar (JComponent j){
+        j.setFont(fuente);
+        j.setBorder(null);
+        j.setFocusable(false);
+        j.setForeground(new Color(255,245,213));
+        j.setOpaque(false);
     }
 
     @Override
@@ -84,5 +100,12 @@ public class PanelGeneralInfo extends JPanel {
         comidaCarne.setText(": "+habitat.getComidaCarne());
         comidaHierba.setText(": "+habitat.getComidaHierba());
         habitat.setTemperatura(tempSlider.getValue());
+        tempValue.setText(String.valueOf(habitat.getTemperatura()) + "C");
+        if (habitat.getTemperatura() >= habitat.getTipoDeHabitat().getTemperaturaMinima() && habitat.getTemperatura() <= habitat.getTipoDeHabitat().getTemperaturaMaxima()){
+            tempValue.setForeground(new Color(169,230,29));
+        }
+        else {
+            tempValue.setForeground(new Color(255,245,213));
+        }
     }
 }
