@@ -33,6 +33,7 @@ public abstract class Animal {
     protected boolean enMovimiento = false;
     protected TipoDeHabitat habitatPreferido;
     protected int felicidad;
+    protected int infelicidad;
     protected Habitat habitat;
     protected ArrayList<ImageIcon> imagenes;
     protected int ancho;
@@ -62,7 +63,9 @@ public abstract class Animal {
     public void comer() {
         if (ticksComer == 100) {
             if (hambre < 100){
-                hambre++;
+                hambre = hambre + apetito;
+            }else {
+                hambre = 100;
             }
             if (hambre > 50) {
                 boolean comio = false;
@@ -81,11 +84,14 @@ public abstract class Animal {
                 if (comio) {
                     if (felicidad < 100){
                         felicidad++;
+                        infelicidad = 0;
                     }
                     hambre = 0;
                 }else {
                     if (felicidad > 0) {
                         felicidad--;
+                    } else {
+                        infelicidad++;
                     }
                 }
             }
@@ -98,9 +104,13 @@ public abstract class Animal {
         if (ticksTemperatura == 200) {
             temperatura = habitat.getTemperatura();
             if (habitat.getTipoDeHabitat().getTemperaturaMinima() <= temperatura && temperatura <= habitat.getTipoDeHabitat().getTemperaturaMaxima()){
-                felicidad++;
+                if(felicidad > 0 && felicidad < 100) {
+                    felicidad++;
+                }
             }else {
-                felicidad--;
+                if(felicidad > 0) {
+                    felicidad--;
+                }
             }
             ticksTemperatura = 0;
         }
@@ -139,6 +149,10 @@ public abstract class Animal {
         return dieta;
     }
 
+    public Habitat getHabitat() {
+        return habitat;
+    }
+
     /**
      * Devuelve el habitat correspondiente al animal
      * @return el habitat correspondiente al animal
@@ -153,6 +167,14 @@ public abstract class Animal {
      */
     public int getFelicidad() {
         return felicidad;
+    }
+
+    /**
+     * Devuelve la infelicidad del animal
+     * @return la infelicidad del animal
+     */
+    public int getInfelicidad() {
+        return infelicidad;
     }
 
     /**
