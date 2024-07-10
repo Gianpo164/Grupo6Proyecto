@@ -1,17 +1,21 @@
 package logica;
 
 import GUI.PanelPrincipal;
+import logica.animales.Animal;
 import logica.habitat.Habitat;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Collections.synchronizedList;
 
 /**
- * Ciclo que se encarga de actualizar la logica y rederizar la aplicacion, los ticks por segundo determinan la velocidad del juego
+ * Ciclo que se encarga de actualizar la logica y rederizar la aplicacion
  */
 public class GameLoop implements Runnable {
 
     private boolean isRunning;
-    private double ticksPorSegundo = 20;
+    private double ticksPorSegundo = 2000;
     private double framesPorSegundo = 60;
     private final double nanoSegundosPorTicks = 1000000000 / ticksPorSegundo;
     private final double nanoSegundosPorFrame = 1000000000 / framesPorSegundo;
@@ -22,6 +26,8 @@ public class GameLoop implements Runnable {
     private long tiempo;
     private PanelPrincipal panel;
     private ArrayList<Habitat> habitats;
+    private ArrayList<Habitat> habitatsCopia;
+    private ArrayList<Animal> animalesCopia;
 
     /**
      * Metodo que inicia el funcionamiento de esta clase
@@ -61,16 +67,15 @@ public class GameLoop implements Runnable {
      * Actualiza la logica del programa
      */
     public void update() {
-        if (!habitats.isEmpty()) {
-            int x = habitats.size();
-            for (int i = 0; i < x; i++) {
-                Habitat habitat = habitats.get(i);
-                if (!habitat.getAnimals().isEmpty()) {
-                    int y = habitat.getAnimals().size();
-                    for (int j = 0; j < y; j++) {
-                        habitat.getAnimals().get(j).mover();
-                        habitat.getAnimals().get(j).comer();
-                        habitat.getAnimals().get(j).temperatura();
+        habitatsCopia = (ArrayList<Habitat>) habitats.clone();
+        if (!habitatsCopia.isEmpty()) {
+            for (Habitat habitat : habitatsCopia) {
+                animalesCopia = (ArrayList<Animal>) habitat.getAnimals().clone();
+                if (!animalesCopia.isEmpty()) {
+                    for (Animal animal : animalesCopia) {
+                        animal.mover();
+                        animal.temperatura();
+                        animal.comer();
                     }
                 }
             }
