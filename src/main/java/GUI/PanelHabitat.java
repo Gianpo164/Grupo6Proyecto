@@ -13,10 +13,17 @@ abstract public class PanelHabitat extends JPanel implements MouseListener {
     private PanelPrincipal panelPrincipal;
     private boolean menuAnimales;
     private Image imagenFondo;
+    private Image comederoHierba;
+    private Image comederoCarne;
+    private Image comedero;
+
 
     public PanelHabitat(Habitat habitat) {
         this.habitat = habitat;
         imagenFondo = ((new ImageIcon("src/main/resources/Habitats/"+habitat.getTipoDeHabitat().getHabitat() + habitat.getSizeHabitat().getSize()+".png")).getImage());
+        comederoCarne = ((new ImageIcon("src/main/resources/ComederoC.png")).getImage());
+        comederoHierba = ((new ImageIcon("src/main/resources/ComederoH.png")).getImage());
+        comedero = ((new ImageIcon("src/main/resources/Comedero.png")).getImage());
         setVisible(true);
         setOpaque(false);
         setLayout(null);
@@ -29,6 +36,14 @@ abstract public class PanelHabitat extends JPanel implements MouseListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagenFondo, 0, 0, null);
+        g.drawImage(comederoCarne, 79, 40, null);
+        g.drawImage(comederoHierba, 50, 40, null);
+        if (habitat.getComidaCarne() == 0){
+            g.drawImage(comedero, 79, 40, null);
+        }
+        if (habitat.getComidaHierba() == 0){
+            g.drawImage(comedero, 50, 40, null);
+        }
         if (habitat != null) {// temporal hasta que tengamos menu por defecto
             for (Animal animal : habitat.getAnimals()) {
                 if(animal.getDireccionX()) {

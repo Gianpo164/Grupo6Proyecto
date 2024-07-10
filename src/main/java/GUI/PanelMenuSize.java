@@ -46,22 +46,31 @@ public class PanelMenuSize extends PanelMenu {
 
         SizeButtonHabitat smallButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NO, panel);
         smallButton0.setText("Small 0");
+        smallButton0.setSize(100,100);
         SizeButtonHabitat smallButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NE, panel);
         smallButton1.setText("Small 1");
+        smallButton1.setSize(100,100);
         SizeButtonHabitat smallButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SO, panel);
         smallButton2.setText("Small 2");
+        smallButton2.setSize(100,100);
         SizeButtonHabitat smallButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SE, panel);
         smallButton3.setText("Small 3");
+        smallButton3.setSize(100,100);
         SizeButtonHabitat mediumButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_N, panel);
         mediumButton0.setText("Medium -");
+        mediumButton0.setSize(100,100);
         SizeButtonHabitat mediumButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_S, panel);
         mediumButton1.setText("Medium _");
+        mediumButton1.setSize(100,100);
         SizeButtonHabitat mediumButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_E, panel);
         mediumButton2.setText("Medium :|");
+        mediumButton2.setSize(100,100);
         SizeButtonHabitat mediumButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_O, panel);
         mediumButton3.setText("Medium |:");
+        mediumButton3.setSize(100,100);
         SizeButtonHabitat largeButton = new SizeButtonHabitat(fabrica, SizeHabitat.LARGE, PosicionPanelHabitat.GRANDE, panel);
         largeButton.setText("Large");
+        largeButton.setSize(100,100);
 
         if (ocupado.get(0) == 1) {
             smallButton0.setEnabled(false);
