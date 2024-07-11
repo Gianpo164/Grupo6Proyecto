@@ -5,9 +5,6 @@ import logica.animales.Animal;
 import logica.habitat.Habitat;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Collections.synchronizedList;
 
 /**
  * Ciclo que se encarga de actualizar la logica y rederizar la aplicacion
@@ -15,7 +12,8 @@ import static java.util.Collections.synchronizedList;
 public class GameLoop implements Runnable {
 
     private boolean isRunning;
-    private double ticksPorSegundo = 2000;
+    private boolean isUpdating;
+    private double ticksPorSegundo = 20;
     private double framesPorSegundo = 60;
     private final double nanoSegundosPorTicks = 1000000000 / ticksPorSegundo;
     private final double nanoSegundosPorFrame = 1000000000 / framesPorSegundo;
@@ -35,6 +33,7 @@ public class GameLoop implements Runnable {
     @Override
     public void run() {
         isRunning = true;
+        isUpdating = true;
         tiempo = System.currentTimeMillis();
         long ultimoInstante = System.nanoTime();
 
@@ -47,7 +46,9 @@ public class GameLoop implements Runnable {
             if (deltaTicks >= 1) {
                 ticks++;
                 deltaTicks--;
-                update();
+                if (isUpdating) {
+                    update();
+                }
             }
 
             if (deltaFrames >= 1) {
@@ -61,6 +62,7 @@ public class GameLoop implements Runnable {
                 }
             }
         }
+        System.out.println("lol");
     }
 
     /**
@@ -103,5 +105,21 @@ public class GameLoop implements Runnable {
      */
     public void setHabitats(ArrayList<Habitat> habitats) {
         this.habitats = habitats;
+    }
+
+    /**
+     * Devuelve true si la logica esta funcionando o false si esta pausada
+     * @return valor de funcionamiento de la logica
+     */
+    public boolean getUpdating() {
+        return isUpdating;
+    }
+
+    /**
+     * Asigna el valor true o false al funcionamiento de la logica
+     * @param updating valor de verdad del funcionamiento
+     */
+    public void setUpdating(boolean updating) {
+        isUpdating = updating;
     }
 }
