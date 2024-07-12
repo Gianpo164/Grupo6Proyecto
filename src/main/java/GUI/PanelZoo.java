@@ -6,11 +6,18 @@ import java.util.ArrayList;
 
 import static java.awt.GridBagConstraints.*;
 
+/**
+ * Panel que contiene al zoologico y sus habitats
+ */
 public class PanelZoo extends JPanel {
     private ArrayList<PanelBaseHabitat> paneles = new ArrayList<>();
     private PanelPrincipal panelPrincipal;
     private Image Fondo;
 
+    /**
+     * Genera el panel y agrega el espacio para los habitats
+     * @param panelPrincipal Panel que contiene y dibuja los componentes en pantalla
+     */
     public PanelZoo(PanelPrincipal panelPrincipal) {
 
         Dimension size = new Dimension(1374,900);
@@ -24,6 +31,9 @@ public class PanelZoo extends JPanel {
         addComponents();
     }
 
+    /**
+     * Crea los espacios para los habitats
+     */
     private void addComponents() {
         GridBagConstraints c = new GridBagConstraints();
 
@@ -78,10 +88,18 @@ public class PanelZoo extends JPanel {
         paneles.add(SE);
     }
 
+    /**
+     * Devuele la lista de espacios para los habitats
+     * @return la lista de espacios para los habitats
+     */
     public ArrayList<PanelBaseHabitat> getPaneles() {
         return paneles;
     }
 
+    /**
+     * Dibuja el fondo del zoo
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

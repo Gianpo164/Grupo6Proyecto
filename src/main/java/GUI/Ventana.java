@@ -2,6 +2,9 @@ package GUI;
 
 import javax.swing.*;
 
+/**
+ * Ventana que genera el programa
+ */
 public class Ventana extends JFrame {
     public Ventana() {
         PanelPrincipal panel = new PanelPrincipal();

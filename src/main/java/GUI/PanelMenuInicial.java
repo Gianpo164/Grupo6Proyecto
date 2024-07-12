@@ -4,12 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Panel que funciona como menu inical y permite la interaccion con el zoologico
+ */
 public class PanelMenuInicial extends PanelMenu implements ActionListener{
     private PanelPrincipal panelPrincipal;
     private Image imagenMenu;
@@ -21,6 +22,11 @@ public class PanelMenuInicial extends PanelMenu implements ActionListener{
     private int accumulator = 0;
     private Image pauseButton = new ImageIcon("src/main/resources/Pausar.png").getImage();
 
+    /**
+     * Crea el panel y agrega sus compnentes visuales
+     * @param panelPrincipal Panel que contiene y dibuja los componentes en pantalla
+     * @param habitats Lista de habitats existentes en el zoo
+     */
     public PanelMenuInicial(PanelPrincipal panelPrincipal, ArrayList habitats) {
         super();
         this.panelPrincipal = panelPrincipal;
@@ -51,13 +57,17 @@ public class PanelMenuInicial extends PanelMenu implements ActionListener{
         buttonPause.setToolTipText("Pausa/Renaudar");
 
         panelEditorHabitat = new PanelEditorHabitat(panelPrincipal.getPanelZoo(), habitats);
-        panelNotificaciones = new PanelNotificaciones(habitats);
+        panelNotificaciones = new PanelNotificaciones(habitats);    //Asignar tamaño abajo
         add(buttonPause);
         add(titulo);
         add(panelEditorHabitat);
         add(panelNotificaciones);
     }
 
+    /**
+     * Configura un componente para comportarce como sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -67,6 +77,10 @@ public class PanelMenuInicial extends PanelMenu implements ActionListener{
     }
 
 
+    /**
+     * Detiene o reanuda el funcionamiebto logico del programa
+     * @param e the event to be processed
+     */
     public void actionPerformed(ActionEvent e) {
         boolean running = panelPrincipal.getGl().getUpdating();
         panelPrincipal.getGl().setUpdating(!running);
@@ -77,6 +91,10 @@ public class PanelMenuInicial extends PanelMenu implements ActionListener{
         }
     }
 
+    /**
+     * Dibuja el boton de pausa y crea las notificaciones correspondientes
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

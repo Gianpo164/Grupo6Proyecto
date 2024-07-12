@@ -10,22 +10,30 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Panel de informacion relacionada a los habitats del zoologico
+ */
 public class PanelEditorHabitat extends JPanel implements ActionListener {
-    Font fuente;
-    PanelZoo panelZoo;
+    private Font fuente;
+    private PanelZoo panelZoo;
     private ArrayList<Habitat> habitats;
-    JButton editor;
-    JTextField habitat;
-    JTextField informacion;
-    JTextField habitatCount;
-    JTextField sabanaCount;
-    JTextField polarCount;
-    JTextField desiertoCount;
-    JTextField bosqueCount;
-    JTextField tropicalCount;
-    JTextField monteCount;
+    private JButton editor;
+    private JTextField habitat;
+    private JTextField informacion;
+    private JTextField habitatCount;
+    private JTextField sabanaCount;
+    private JTextField polarCount;
+    private JTextField desiertoCount;
+    private JTextField bosqueCount;
+    private JTextField tropicalCount;
+    private JTextField monteCount;
 
 
+    /**
+     * Crea el panel y agrega sus componentes
+     * @param panelZoo Panel que contiene al zoo
+     * @param habitats Lista de habitats existentes en el zoo
+     */
     public PanelEditorHabitat(PanelZoo panelZoo, ArrayList habitats){
         try {
             fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(17f);
@@ -107,10 +115,12 @@ public class PanelEditorHabitat extends JPanel implements ActionListener {
         add(habitatCount);
         add(habitat);
         add(editor);
-
-
     }
 
+    /**
+     * Configura un componente para comportarce como sus pares
+     * @param j Componente a configurar
+     */
     private void configurarCounts (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -119,6 +129,10 @@ public class PanelEditorHabitat extends JPanel implements ActionListener {
         j.setOpaque(false);
     }
 
+    /**
+     * Habilita los paneles base para crear habitats en ellos
+     * @param ae the event to be processed
+     */
     public void actionPerformed(ActionEvent ae) {
         for (PanelBaseHabitat i : panelZoo.getPaneles()) {
             i.setSelected(true);
@@ -126,6 +140,10 @@ public class PanelEditorHabitat extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Dibuja y actualiza la inforamcion presente en el panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

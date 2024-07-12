@@ -10,10 +10,13 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Panel de informacion general de un animal
+ */
 public class PanelInfoAnimal extends JPanel{
     private Animal animal;
     private Image imagenInfoAnimal;
-    private PanelInfoAnimales panelInfoAnimales;
+    private PanelInfoAnimales panelInfoAnimales;    //Eliminar
     private Habitat habitat;
     private Font fuente;
     private JTextField nombre;
@@ -22,6 +25,12 @@ public class PanelInfoAnimal extends JPanel{
     private JTextField felicidad;
     private JTextField hambre;
 
+    /**
+     * Crea el panel y asigna los componentes que se muestran
+     * @param animal Animal del cual se mostrara informacion
+     * @param habitat Habitat al cual pertenece el animal
+     * @param panelInfoAnimales Panel donde se encuentran todos los paneles de informacion de los animales del habitat
+     */
     public PanelInfoAnimal(Animal animal,Habitat habitat, PanelInfoAnimales panelInfoAnimales){
         this.setLayout(null);
         this.animal = animal;
@@ -82,6 +91,10 @@ public class PanelInfoAnimal extends JPanel{
         setOpaque(false);
     }
 
+    /**
+     * Dibuja los componentes del panel y actualiza su informacion
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -93,19 +106,35 @@ public class PanelInfoAnimal extends JPanel{
         hambre.setText("Hambre: "+animal.getHambre());
     }
 
+    /**
+     * Devuelve el animal del cual se esta mostrando informacion
+     * @return el animal del cual se esta mostrando informacion
+     */
     public Animal getAnimal() {
         return animal;
     }
 
+    /**
+     * Configura los componentes del panel para que se comporten como sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setBorder(null);
         j.setFocusable(false);
         j.setForeground(new Color(255,245,213));
         j.setOpaque(false);
     }
+
+    /**
+     * Elimina al animal correspondiente del habitat
+     */
     private void eliminar(){
         habitat.getAnimals().remove(animal);
     }
+
+    /**
+     * Elimina el animal correspondiente y su panel de informacion
+     */
     private class EscuchadorButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             eliminar();

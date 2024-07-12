@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Panel que crea y contiene las distintas notificaciones generadas por el zoo
+ */
 public class PanelNotificaciones extends JPanel {
     private Font fuente;
     private ArrayList<Habitat> habitats;
@@ -19,6 +22,10 @@ public class PanelNotificaciones extends JPanel {
     private ArrayList<Animal> animales;
     private int ticksDeNotiTemporales = 600;
 
+    /**
+     * Crea el panel y asigna la lista de habitats
+     * @param habitats Lista de habitats existentes en el zoo
+     */
     public PanelNotificaciones(ArrayList habitats){
         try {
             fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(10f);
@@ -29,9 +36,12 @@ public class PanelNotificaciones extends JPanel {
         }
         this.habitats = habitats;
         setOpaque(false);
-        setBounds(17,514,464,350);
+        setBounds(17,514,464,350);  //Mover a clase que la crea
     }
 
+    /**
+     * Crea las notificaciones correspondientes a animales y habitats
+     */
     public void createNotificacion() {
         animales = new ArrayList<>();
 
@@ -48,7 +58,6 @@ public class PanelNotificaciones extends JPanel {
                     fieldsAnimales.put(i, (textFields));
                 }
             }
-            fieldsAnimales.keySet().retainAll(animales);
         }
 
         if (habitats.size() != fieldsHabitats.size()){
@@ -64,14 +73,15 @@ public class PanelNotificaciones extends JPanel {
 
         if (!fieldsAnimales.isEmpty()) {
             fieldsAnimales.forEach((k, t) -> {
-                System.out.println();
                 if (k.getFelicidad() <= 10) {
                     configurar(t.get(0));
                     add(t.get(0));
                 }else{
                     remove(t.get(0));
                 }
-
+                if (!animales.contains(k)){
+                    remove(t.get(0));
+                }
                 if (k.getInfelicidad() >= 10) {
                     configurar(t.get(1));
                     add(t.get(1));
@@ -94,8 +104,13 @@ public class PanelNotificaciones extends JPanel {
                 }
             });
         }
+        fieldsAnimales.keySet().retainAll(animales);
     }
 
+    /**
+     * Configura un componente para que se comporte de la misma forma que sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -105,6 +120,9 @@ public class PanelNotificaciones extends JPanel {
         j.setOpaque(false);
     }
 
+    /**
+     * Elimina las notificaciones creadas que no sean necesarias
+     */
     private void quitarNotificaciones(){
         ArrayList<JTextField> notificacionesTemporales = new ArrayList<>(notificaciones.keySet());
         if (!notificaciones.isEmpty()) {
@@ -124,6 +142,10 @@ public class PanelNotificaciones extends JPanel {
         }
     }
 
+    /**
+     * Dibuja el panel y elimina las notificaciones correspondientes
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

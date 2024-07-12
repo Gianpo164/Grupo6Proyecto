@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Panel que funciona como menu que continua la creacion de un habitat
+ */
 public class PanelMenuSize extends PanelMenu {
     private Font fuente;
     private Image imagenMenuHabitat;
@@ -18,7 +21,13 @@ public class PanelMenuSize extends PanelMenu {
     private PanelBaseHabitat panel;
     private ArrayList<Integer> ocupado;
 
-    public PanelMenuSize(HabitatFactory fabrica, PanelBaseHabitat panel) {
+    /**
+     * Crea el panel, añade sus componentes y las opciones para crear un habitat
+     * @param fabrica Fabrica de habitats
+     * @param panel Panel en el que se creará un panel que contiene un habitat
+     * @param bioma Tipo de habitat
+     */
+    public PanelMenuSize(HabitatFactory fabrica, PanelBaseHabitat panel, String bioma) {
         super();
         try {
             fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(15f);
@@ -44,32 +53,23 @@ public class PanelMenuSize extends PanelMenu {
         informacion.setText("Seleccione el tamaño del Habitat a crear");
         informacion.setBounds(14,111,400,24);
 
-        SizeButtonHabitat smallButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NO, panel);
-        smallButton0.setText("Small 0");
+        SizeButtonHabitat smallButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NO, panel,bioma+"NW");
         smallButton0.setSize(100,100);
-        SizeButtonHabitat smallButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NE, panel);
-        smallButton1.setText("Small 1");
+        SizeButtonHabitat smallButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_NE, panel,bioma+"NE");
         smallButton1.setSize(100,100);
-        SizeButtonHabitat smallButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SO, panel);
-        smallButton2.setText("Small 2");
+        SizeButtonHabitat smallButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SO, panel,bioma+"SW");
         smallButton2.setSize(100,100);
-        SizeButtonHabitat smallButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SE, panel);
-        smallButton3.setText("Small 3");
+        SizeButtonHabitat smallButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.SMALL, PosicionPanelHabitat.CHICO_SE, panel,bioma+"SE");
         smallButton3.setSize(100,100);
-        SizeButtonHabitat mediumButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_N, panel);
-        mediumButton0.setText("Medium -");
+        SizeButtonHabitat mediumButton0 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_N, panel,bioma+"N");
         mediumButton0.setSize(100,100);
-        SizeButtonHabitat mediumButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_S, panel);
-        mediumButton1.setText("Medium _");
+        SizeButtonHabitat mediumButton1 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_HORIZONTAL, PosicionPanelHabitat.MEDIANO_S, panel,bioma+"S");
         mediumButton1.setSize(100,100);
-        SizeButtonHabitat mediumButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_E, panel);
-        mediumButton2.setText("Medium :|");
+        SizeButtonHabitat mediumButton2 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_E, panel,bioma+"E");
         mediumButton2.setSize(100,100);
-        SizeButtonHabitat mediumButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_O, panel);
-        mediumButton3.setText("Medium |:");
+        SizeButtonHabitat mediumButton3 = new SizeButtonHabitat(fabrica, SizeHabitat.MEDIUM_VERTICAL, PosicionPanelHabitat.MEDIANO_O, panel,bioma+"W");
         mediumButton3.setSize(100,100);
-        SizeButtonHabitat largeButton = new SizeButtonHabitat(fabrica, SizeHabitat.LARGE, PosicionPanelHabitat.GRANDE, panel);
-        largeButton.setText("Large");
+        SizeButtonHabitat largeButton = new SizeButtonHabitat(fabrica, SizeHabitat.LARGE, PosicionPanelHabitat.GRANDE, panel,bioma);
         largeButton.setSize(100,100);
 
         if (ocupado.get(0) == 1) {
@@ -115,6 +115,10 @@ public class PanelMenuSize extends PanelMenu {
         add(panelBotones);
     }
 
+    /**
+     * Configura un componente para comportarce como sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -123,7 +127,10 @@ public class PanelMenuSize extends PanelMenu {
         j.setOpaque(false);
     }
 
-
+    /**
+     * Dibuja el fondo del panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -8,10 +8,17 @@ import java.awt.*;
 
 import static java.awt.GridBagConstraints.CENTER;
 
+/**
+ * Panel que contiene la funcionalidad de añadir animales
+ */
 public class PanelAddAnimales extends JPanel{
     private JPanel container;
 
 
+    /**
+     * Crea el panel y añade sus componentes
+     * @param habitat Habitat la que se le añadiran animales
+     */
     public PanelAddAnimales(Habitat habitat) {
         setPreferredSize(new Dimension(500,250));
         setOpaque(false);
@@ -29,9 +36,9 @@ public class PanelAddAnimales extends JPanel{
             for (int j = 0; j < 3; j++) {
                 c.gridy = i;
                 c.gridx = j;
-                JPanel test1 = new JPanel();
-                test1.setPreferredSize((new Dimension(0,0)));
-                container.add(test1 ,c);
+                JPanel aux = new JPanel();
+                aux.setPreferredSize((new Dimension(0,0)));
+                container.add(aux ,c);
             }
         }
         int x = 0;

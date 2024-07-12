@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Boton que reabastece de comida un habitat
+ */
 public class ReabastecerComidaButton extends JButton implements ActionListener {
     private Habitat habitat;
     private String comida;
     private Image imagenCarne = new ImageIcon("src/main/resources/Carne.png").getImage();
     private Image imagenHierba = new ImageIcon("src/main/resources/Hierba.png").getImage();
 
+    /**
+     * Crea el boton y le asigna sus atributos
+     * @param habitat Habitat al cual se le reabastecera la comida
+     * @param comida Tipo de comida a reabastecer
+     */
     public ReabastecerComidaButton(Habitat habitat, String comida) {
         this.habitat = habitat;
         this.comida = comida;
@@ -23,6 +31,10 @@ public class ReabastecerComidaButton extends JButton implements ActionListener {
         addActionListener(this);
     }
 
+    /**
+     * Reabastece la comida seleccionada del habitat
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (habitat.getSizeHabitat()) {
@@ -47,6 +59,10 @@ public class ReabastecerComidaButton extends JButton implements ActionListener {
         }
     }
 
+    /**
+     * Dibuja la imagen del boton
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -1,6 +1,5 @@
 package GUI;
 
-import logica.habitat.Habitat;
 import logica.habitat.TipoDeHabitat;
 
 import javax.swing.*;
@@ -8,6 +7,9 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Panel que funciona como menu para empezar la creacion de un habitat
+ */
 public class PanelMenuHabitat extends PanelMenu {
     private Font fuente;
     private Image imagenMenuHabitat;
@@ -22,6 +24,10 @@ public class PanelMenuHabitat extends PanelMenu {
     private JTextField tropical;
 
 
+    /**
+     * Crea el panel y asigna sus componentes, ademas de añadir las opciones para crear un habitat
+     * @param panelBaseHabitat Panel en el que se creará un panel que contiene un habitat
+     */
     public PanelMenuHabitat(PanelBaseHabitat panelBaseHabitat) {
         super();
         try {
@@ -105,6 +111,10 @@ public class PanelMenuHabitat extends PanelMenu {
         add(informacion);
     }
 
+    /**
+     * Configura un componente para comportarce como sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -113,6 +123,10 @@ public class PanelMenuHabitat extends PanelMenu {
         j.setOpaque(false);
     }
 
+    /**
+     * Dibuja el fondo del panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

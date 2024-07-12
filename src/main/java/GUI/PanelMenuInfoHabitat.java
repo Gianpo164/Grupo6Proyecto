@@ -5,6 +5,9 @@ import logica.habitat.Habitat;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel que funciona como menu que muestra informacion de un habitat
+ */
 public class PanelMenuInfoHabitat extends PanelMenu{
     private Habitat habitat;
     private PanelInfoAnimales infoAnimales;
@@ -13,6 +16,11 @@ public class PanelMenuInfoHabitat extends PanelMenu{
     private PanelAddAnimales menuAnimales;
 
 
+    /**
+     * Crea el panel y asigna componentes
+     * @param habitat Habitat del cual se mostrara informacion
+     * @param panelPrincipal Panel que contiene y dibuja los componentes en pantalla
+     */
     public PanelMenuInfoHabitat(Habitat habitat, PanelPrincipal panelPrincipal) {
         this.habitat = habitat;
         imagenInfoHabitat = new ImageIcon(getClass().getClassLoader().getResource("InfoHabitat.png")).getImage();
@@ -36,6 +44,10 @@ public class PanelMenuInfoHabitat extends PanelMenu{
         add(scrollPane, BorderLayout.CENTER);
     }
 
+    /**
+     * Dibuja el fondo del panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

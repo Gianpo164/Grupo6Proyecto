@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Hashtable;
 
+/**
+ * Panel de inforamcion general de un habitat
+ */
 public class PanelGeneralInfo extends JPanel {
     private Habitat habitat;
     private Font fuente;
@@ -20,6 +22,11 @@ public class PanelGeneralInfo extends JPanel {
     private JSlider tempSlider;
     private Image imagen = new ImageIcon("src/main/resources/GeneralInfoHabitat.png").getImage();
 
+    /**
+     * Crea el panel y agrega distinta informacion relevante del habitat
+     * @param habitat Habitat del cual se mostrara informacion
+     * @param panelPrincipal Panel que contiene y dibuja los componentes en pantalla
+     */
     public PanelGeneralInfo(Habitat habitat, PanelPrincipal panelPrincipal) {
         this.habitat = habitat;
         setPreferredSize(new Dimension(500, 150));
@@ -81,9 +88,12 @@ public class PanelGeneralInfo extends JPanel {
         SalirPanelButton salirButton = new SalirPanelButton(panelPrincipal);
         salirButton.setBounds(440,10,40,40);
         add(salirButton);
-
     }
 
+    /**
+     * Configura un componente para comportarce como sus pares
+     * @param j Componente a configurar
+     */
     private void configurar (JComponent j){
         j.setFont(fuente);
         j.setBorder(null);
@@ -92,6 +102,10 @@ public class PanelGeneralInfo extends JPanel {
         j.setOpaque(false);
     }
 
+    /**
+     * Dibuja el fondo y actualiza los valores de informacion
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
