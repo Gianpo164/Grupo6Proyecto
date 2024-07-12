@@ -34,6 +34,7 @@ public abstract class Animal {
     protected TipoDeHabitat habitatPreferido;
     protected int felicidad;
     protected int infelicidad;
+    protected boolean valGrupo = false;
     protected Habitat habitat;
     protected ArrayList<ImageIcon> imagenes;
     protected int ancho;
@@ -219,13 +220,13 @@ public abstract class Animal {
      */
     public void mover() {
         if (enMovimiento) {
-            posicionX += velocidad * (objetivoPosicionX - posicionX) / (Math.abs(objetivoPosicionX - posicionX) + Math.abs(objetivoPosicionY - posicionY));//posible division 0/0
-            posicionY += velocidad * (objetivoPosicionY - posicionY) / (Math.abs(objetivoPosicionX - posicionX) + Math.abs(objetivoPosicionY - posicionY));//posible division 0/0
+            posicionX += velocidad * (objetivoPosicionX - posicionX) / (Math.abs(objetivoPosicionX - posicionX) + Math.abs(objetivoPosicionY - posicionY));
+            posicionY += velocidad * (objetivoPosicionY - posicionY) / (Math.abs(objetivoPosicionX - posicionX) + Math.abs(objetivoPosicionY - posicionY));
             estamina -= 1;
             if (estamina <= 0) {
                 enMovimiento = false;
             } else {
-                if (direccionX) { // derecha
+                if (direccionX) {
                     if (posicionX - objetivoPosicionX >= 0) {
                         posicionX = objetivoPosicionX;
                         posicionY = objetivoPosicionY;
@@ -236,7 +237,7 @@ public abstract class Animal {
                         posicionY = objetivoPosicionY;
                         enMovimiento = false;
                 }
-                if (direccionY) { //else? abajo
+                if (direccionY) {
                     if (posicionY - objetivoPosicionY >= 0) {
                         posicionX = objetivoPosicionX;
                         posicionY = objetivoPosicionY;
@@ -264,9 +265,9 @@ public abstract class Animal {
             }
 
             if (objetivoPosicionY - posicionY >= 0) {
-                direccionY = true; //abajo
+                direccionY = true;
             }else {
-                direccionY = false; //arriba
+                direccionY = false;
             }
             enMovimiento = true;
         }

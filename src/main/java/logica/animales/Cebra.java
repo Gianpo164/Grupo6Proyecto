@@ -10,7 +10,7 @@ public class Cebra extends Animal{
     public Cebra(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Cebra";
-        descripcion = "Presa indefensa";
+        descripcion = "Pueden dormir pie!";
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.SABANA;
@@ -25,9 +25,16 @@ public class Cebra extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 3)
-            felicidad += 50;
-        if (felicidad > 100)
-            felicidad = 100;
+        if (grupo >= 3 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 3 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

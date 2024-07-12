@@ -10,7 +10,7 @@ public class Zorro extends Animal{
     public Zorro(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Zorro";
-        descripcion = "Chico y escurridizo";
+        descripcion = "Alegres como una hiena";
         dieta = TipoDeDieta.OMNIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.DESIERTO;

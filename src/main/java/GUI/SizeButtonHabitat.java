@@ -12,14 +12,14 @@ import java.awt.event.ActionListener;
 /**
  * Boton que determina el tamaño del habitat a crear
  */
-public class SizeButtonHabitat extends JButton {
+public class SizeButtonHabitat extends JButton implements ActionListener{
     private HabitatFactory fabrica;
     private SizeHabitat size;
     private Habitat habitatCreado;
     private PanelBaseHabitat panel;
     private PanelHabitat panelHabitat;
     private PosicionPanelHabitat posicionPanelHabitat;
-    private Image imagen;
+    private ImageIcon imagen;
 
     /**
      * Crea el boton y asigna sus atributos
@@ -34,53 +34,52 @@ public class SizeButtonHabitat extends JButton {
         this.size = size;
         this.panel = panel;
         this.posicionPanelHabitat = posicionPanelHabitat;
-        imagen = new ImageIcon("src/main/resources/iconsButtonHabitat/"+bioma+size.getSize()+".png").getImage();
+        imagen = new ImageIcon("src/main/resources/iconsButtonHabitat/"+bioma+size.getSize()+".png");
 
+        setIcon(imagen);
         setBorder(null);
         setContentAreaFilled(false);
         setFocusable(false);
 
-        addActionListener(new EscuchadorButton());
+        addActionListener(this);
     }
 
     /**
      * Determina el tamaño del habitat, lo crea y añade al panel que contiene paneles de habitats
      */
-    private class EscuchadorButton implements ActionListener {
-        public void actionPerformed(ActionEvent ae) {
-            switch (size) {
-                case SMALL -> {
-                    habitatCreado = fabrica.crearSmallHabitat();
-                    panelHabitat = new PanelSmallHabitat(habitatCreado);
-                }
-                case MEDIUM_HORIZONTAL -> {
-                    habitatCreado = fabrica.crearMediumHabitat();
-                    habitatCreado.setSizeHabitat(SizeHabitat.MEDIUM_HORIZONTAL);
-                    PanelMediumHabitat panelMediumHabitat = new PanelMediumHabitat(habitatCreado);
-                    panelMediumHabitat.setSizePanel(posicionPanelHabitat);
-                    panelHabitat = panelMediumHabitat;
-                }
-                case MEDIUM_VERTICAL -> {
-                    habitatCreado = fabrica.crearMediumHabitat();
-                    habitatCreado.setSizeHabitat(SizeHabitat.MEDIUM_VERTICAL);
-                    PanelMediumHabitat panelMediumHabitat = new PanelMediumHabitat(habitatCreado);
-                    panelMediumHabitat.setSizePanel(posicionPanelHabitat);
-                    panelHabitat = panelMediumHabitat;
-                }
-                case LARGE -> {
-                    habitatCreado = fabrica.crearLargeHabitat();
-                    panelHabitat = new PanelLargeHabitat(habitatCreado);
-                }
+    public void actionPerformed(ActionEvent ae) {
+        switch (size) {
+            case SMALL -> {
+                habitatCreado = fabrica.crearSmallHabitat();
+                panelHabitat = new PanelSmallHabitat(habitatCreado);
             }
-            panel.setPosicionPanelHabitat(posicionPanelHabitat);
-            panel.getPanelPrincipal().addHabitat(habitatCreado);
-            panel.setPanelHabitat(panelHabitat);
-            panel.getPanelPrincipal().setPanelDibujar(null);
+            case MEDIUM_HORIZONTAL -> {
+                habitatCreado = fabrica.crearMediumHabitat();
+                habitatCreado.setSizeHabitat(SizeHabitat.MEDIUM_HORIZONTAL);
+                PanelMediumHabitat panelMediumHabitat = new PanelMediumHabitat(habitatCreado);
+                panelMediumHabitat.setSizePanel(posicionPanelHabitat);
+                panelHabitat = panelMediumHabitat;
+            }
+            case MEDIUM_VERTICAL -> {
+                habitatCreado = fabrica.crearMediumHabitat();
+                habitatCreado.setSizeHabitat(SizeHabitat.MEDIUM_VERTICAL);
+                PanelMediumHabitat panelMediumHabitat = new PanelMediumHabitat(habitatCreado);
+                panelMediumHabitat.setSizePanel(posicionPanelHabitat);
+                panelHabitat = panelMediumHabitat;
+            }
+            case LARGE -> {
+                habitatCreado = fabrica.crearLargeHabitat();
+                panelHabitat = new PanelLargeHabitat(habitatCreado);
+            }
+        }
+        panel.setPosicionPanelHabitat(posicionPanelHabitat);
+        panel.getPanelPrincipal().addHabitat(habitatCreado);
+        panel.setPanelHabitat(panelHabitat);
+        panel.getPanelPrincipal().setPanelDibujar(null);
 
-            for (PanelBaseHabitat i : panel.getPanelPrincipal().getPaneles()) {
-                i.setSelected(false);
-                i.setMenuHabitat(false);
-            }
+        for (PanelBaseHabitat i : panel.getPanelPrincipal().getPaneles()) {
+            i.setSelected(false);
+            i.setMenuHabitat(false);
         }
     }
 
@@ -91,6 +90,5 @@ public class SizeButtonHabitat extends JButton {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(imagen,0,0,null);
     }
 }

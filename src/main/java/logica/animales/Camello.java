@@ -10,7 +10,7 @@ public class Camello extends Animal{
     public Camello(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Camello";
-        descripcion = "Pueden llegar a beber 115 litros de agua";
+        descripcion = "Toman mucha agua!";
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.DESIERTO;
@@ -25,9 +25,16 @@ public class Camello extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 3)
-            felicidad += 50;
-        if (felicidad > 100)
-            felicidad = 100;
+        if (grupo >= 3 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 3 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

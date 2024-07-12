@@ -10,7 +10,7 @@ public class Hiena extends Animal{
     public Hiena(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Hiena";
-        descripcion = "Son bastante alegres";
+        descripcion = "Alegres como un zorro";
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.SABANA;
@@ -25,9 +25,16 @@ public class Hiena extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 3)
-            felicidad += 50;
-        if (felicidad > 100)
-            felicidad = 100;
+        if (grupo >= 3 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 3 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

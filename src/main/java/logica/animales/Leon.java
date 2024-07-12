@@ -10,7 +10,7 @@ public class Leon extends Animal {
     public Leon(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Leon";
-        descripcion = "Depredador salvaje";
+        descripcion = "El rey de la sabana!";
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.SABANA;

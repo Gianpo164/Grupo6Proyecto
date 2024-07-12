@@ -10,7 +10,7 @@ public class Cabra extends Animal{
     public Cabra(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Cabra";
-        descripcion = "Pueden llegar a escalar pendientes de más de 60 grados.";
+        descripcion = "Son muy agiles!";
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.MONTE;
@@ -25,9 +25,16 @@ public class Cabra extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 2)
-            felicidad = 100;
-        else
-            felicidad = 25;
+        if (grupo >= 2 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 2 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

@@ -10,7 +10,7 @@ public class OsoPolar extends Animal{
     public OsoPolar(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Oso polar";
-        descripcion = "Son nadadores muy fuertes";
+        descripcion = "Son nadadores muy fuertes!";
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.POLAR;

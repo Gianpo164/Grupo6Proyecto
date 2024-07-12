@@ -10,7 +10,7 @@ public class PanteraNegra extends Animal{
     public PanteraNegra(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Pantera negra";
-        descripcion = "Tienen una excelente visión nocturna";
+        descripcion = "Tienen una excelente visión nocturna!";
         dieta = TipoDeDieta.CARNIVORO;
         hambre = 50;
         habitatPreferido = TipoDeHabitat.TROPICAL;

@@ -10,7 +10,7 @@ public class Mono extends Animal{
     public Mono(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Mono";
-        descripcion = "Existen muchas especies distintas de monos";
+        descripcion = "Existen muchas especies de monos";
         dieta = TipoDeDieta.OMNIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.TROPICAL;
@@ -25,9 +25,16 @@ public class Mono extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 3)
-            felicidad = 100;
-        else
-            felicidad = 25;
+        if (grupo >= 3 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 3 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

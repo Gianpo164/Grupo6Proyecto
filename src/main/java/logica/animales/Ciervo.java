@@ -14,7 +14,7 @@ public class Ciervo extends Animal{
         dieta = TipoDeDieta.HERBIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.BOSQUE;
-        felicidad = 0;
+        felicidad = 25;
         apetito = 1;
     }
 
@@ -25,9 +25,16 @@ public class Ciervo extends Animal{
                 grupo++;
             }
         }
-        if (grupo >= 3)
-            felicidad += 50;
-        if (felicidad > 100)
-            felicidad = 100;
+        if (grupo >= 3 && !valGrupo) {
+            felicidad += 25;
+            if (felicidad > 100)
+                felicidad = 100;
+            valGrupo = true;
+        } else if (grupo < 3 && valGrupo) {
+            felicidad -= 25;
+            if (felicidad < 0)
+                felicidad = 0;
+            valGrupo = false;
+        }
     }
 }

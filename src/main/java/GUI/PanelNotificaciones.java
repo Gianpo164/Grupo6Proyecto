@@ -53,7 +53,7 @@ public class PanelNotificaciones extends JPanel {
                 if (!fieldsAnimales.containsKey(i)) {
                     ArrayList<JTextField> textFields = new ArrayList<>();
                     textFields.add(new JTextField("Un/a " + i.getNombre() + " esta muy triste por las condiciones en las que vive"));
-                    textFields.add(new JTextField("Se han llevado a un/a " + i.getNombre() + "debido a su infelicidad"));
+                    textFields.add(new JTextField("Se han llevado a un/a " + i.getNombre() + " debido a su infelicidad"));
                     fieldsAnimales.put(i, (textFields));
                 }
             }
@@ -63,7 +63,8 @@ public class PanelNotificaciones extends JPanel {
             for (Habitat i : habitats){
                 if (!fieldsHabitats.containsKey(i)) {
                     ArrayList<JTextField> textFields = new ArrayList<>();
-                    textFields.add(new JTextField("Se acabo la comida en un " + i.getTipoDeHabitat().getNombre()));
+                    textFields.add(new JTextField("Se acabo la carne en un " + i.getTipoDeHabitat().getNombre()));
+                    textFields.add(new JTextField("Se acabo la hierba en un " + i.getTipoDeHabitat().getNombre()));
                     fieldsHabitats.put(i, (textFields));
                 }
             }
@@ -85,7 +86,7 @@ public class PanelNotificaciones extends JPanel {
                     configurar(t.get(1));
                     add(t.get(1));
                     remove(t.get(0));
-                    k.getHabitat().getAnimals().remove(k);
+                    k.getHabitat().removeAnimal(k);
                     notificaciones.put(t.get(1),0);
                 }else if (k.getInfelicidad() == 0){
                     remove(t.get(1));
@@ -95,11 +96,16 @@ public class PanelNotificaciones extends JPanel {
 
         if (!fieldsHabitats.isEmpty()) {
             fieldsHabitats.forEach((k, t) -> {
-                if (k.getComidaHierba() == 0 || k.getComidaCarne() == 0) {
+                if (k.getComidaCarne() == 0) {
                     configurar(t.get(0));
                     add(t.get(0));
                 } else {
                     remove(t.get(0));
+                } if (k.getComidaHierba() == 0) {
+                    configurar(t.get(1));
+                    add(t.get(1));
+                } else {
+                    remove(t.get(1));
                 }
             });
         }
@@ -133,7 +139,6 @@ public class PanelNotificaciones extends JPanel {
                 }
                 if (x > ticksDeNotiTemporales) {
                     remove(n);
-                    System.out.println(x);
                     notificacionesTemporales.remove(n);
                 }
             });

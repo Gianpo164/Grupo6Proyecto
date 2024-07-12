@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Panel de informacion general de un animal
  */
-public class PanelInfoAnimal extends JPanel{
+public class PanelInfoAnimal extends JPanel implements ActionListener{
     private Animal animal;
     private Image imagenInfoAnimal;
     private Habitat habitat;
@@ -73,7 +73,7 @@ public class PanelInfoAnimal extends JPanel{
 
         JButton eliminar = new JButton(new ImageIcon("src/main/resources/SalirButton.png"));
         eliminar.setBounds(423,18,41,40);
-        eliminar.addActionListener(new EscuchadorButton());
+        eliminar.addActionListener(this);
         eliminar.setBorder(null);
         eliminar.setContentAreaFilled(false);
         eliminar.setFocusable(false);
@@ -126,15 +126,13 @@ public class PanelInfoAnimal extends JPanel{
      * Elimina al animal correspondiente del habitat
      */
     private void eliminar(){
-        habitat.getAnimals().remove(animal);
+        habitat.removeAnimal(animal);
     }
 
     /**
      * Elimina el animal correspondiente y su panel de informacion
      */
-    private class EscuchadorButton implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            eliminar();
-        }
+    public void actionPerformed(ActionEvent e) {
+        eliminar();
     }
 }

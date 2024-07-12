@@ -10,7 +10,7 @@ public class Jabali extends Animal{
     public Jabali(Habitat habitat, ArrayList<ImageIcon> imagen) {
         super(habitat,imagen);
         nombre = "Jabali";
-        descripcion = "Se traen tremendo cortesito";
+        descripcion = "No pueden sudar!";
         dieta = TipoDeDieta.OMNIVORO;
         hambre = 25;
         habitatPreferido = TipoDeHabitat.BOSQUE;
