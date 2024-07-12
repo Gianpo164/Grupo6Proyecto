@@ -249,7 +249,7 @@ public abstract class Animal {
                 }
             }
 
-        } else if (estamina == 0) {
+        } else if (estamina <= 0) {
             estamina = 10000;
         } else {
             do {

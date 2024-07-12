@@ -6,22 +6,21 @@ import static java.awt.GridBagConstraints.*;
  * Enumeracion de las posibles posiciones de un habitat
  */
 public enum PosicionPanelHabitat {
-    GRANDE(0,0,2,2,CENTER, "Large"),
-    MEDIANO_N(0,0,2,1,NORTH, "MediumH"),
-    MEDIANO_S(0,1,2,1,SOUTH,"MediumH"),
-    MEDIANO_E(1,0,1,2,EAST,"MediumV"),
-    MEDIANO_O(0,0,1,2,WEST,"MediumV"),
-    CHICO_NE(1,0,1,1,NORTHEAST,"Small"),
-    CHICO_NO(0,0,1,1,NORTHWEST,"Small"),
-    CHICO_SE(1,1,1,1,SOUTHEAST,"Small"),
-    CHICO_SO(0,1,1,1,SOUTHWEST,"Small");
+    GRANDE(0,0,2,2,CENTER),
+    MEDIANO_N(0,0,2,1,NORTH),
+    MEDIANO_S(0,1,2,1,SOUTH),
+    MEDIANO_E(1,0,1,2,EAST),
+    MEDIANO_O(0,0,1,2,WEST),
+    CHICO_NE(1,0,1,1,NORTHEAST),
+    CHICO_NO(0,0,1,1,NORTHWEST),
+    CHICO_SE(1,1,1,1,SOUTHEAST),
+    CHICO_SO(0,1,1,1,SOUTHWEST);
 
     private int x;
     private int y;
     private int ancho;
     private int alto;
     private int anchor;
-    private String fondo;   //Eliminar
 
     /**
      * Asigna los distintos parametros que contiene la enumeracion
@@ -30,15 +29,13 @@ public enum PosicionPanelHabitat {
      * @param ancho Espacio que ocupa de ancho
      * @param alto Espacio que ocupa de alto
      * @param anchor Punto donde se posiciona
-     * @param fondo Identificador de imagen
      */
-    PosicionPanelHabitat(int x, int y, int ancho, int alto, int anchor, String fondo) {
+    PosicionPanelHabitat(int x, int y, int ancho, int alto, int anchor) {
         this.x = x;
         this.y = y;
         this.ancho = ancho;
         this.alto = alto;
         this.anchor = anchor;
-        this.fondo = fondo;
     }
 
     /**
@@ -79,13 +76,5 @@ public enum PosicionPanelHabitat {
      */
     public int getAnchor() {
         return anchor;
-    }
-
-    /**
-     * Devuelve el identificador de imagen
-     * @return el identificador de imagen
-     */
-    public String getFondo() {  //Eliminar
-        return fondo;
     }
 }

@@ -36,7 +36,6 @@ public class PanelNotificaciones extends JPanel {
         }
         this.habitats = habitats;
         setOpaque(false);
-        setBounds(17,514,464,350);  //Mover a clase que la crea
     }
 
     /**

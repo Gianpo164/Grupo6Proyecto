@@ -1,8 +1,6 @@
-package GUI;
+import GUI.Ventana;
 
-import logica.GameLoop;
-
-public class gui {
+public class Main {
     public static void main(String[] args) {
         Ventana ventana = new Ventana();
     }

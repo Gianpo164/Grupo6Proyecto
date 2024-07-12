@@ -59,7 +59,6 @@ public class PanelBaseHabitat extends JPanel implements MouseListener {
         if (menuHabitat) {
             PanelMenuHabitat menuHabitat = new PanelMenuHabitat(this);
             panelPrincipal.setPanelDibujar(menuHabitat);
-            setColor(Color.gray);
         }
     }
 
@@ -117,28 +116,6 @@ public class PanelBaseHabitat extends JPanel implements MouseListener {
     }
 
     /**
-     * Asigna el panel a dibujar en el panel principal
-     * @param menu Panel tipo menu a dibujar
-     */
-    public void setPaneldibujar(PanelMenu menu){  //Cambiar usos para eliminar metodo
-        panelPrincipal.setPanelDibujar(menu);
-    }
-
-    /**
-     * Añade un habitat creado a una lista dentro del panel principal
-     * @param habitat Habitat creado
-     */
-    public void addHabitat(Habitat habitat){    //Cambiar usos para eliminar metodo
-        panelPrincipal.addHabitat(habitat);
-    }
-
-    /**
-     * Asigna el color del panel
-     * @param color Color a cambiar
-     */
-    public void setColor(Color color){ setBackground(color);}
-
-    /**
      * Determina si el panel ha sido seleccionado
      * @param b Booleano que representa la seleccion del panel
      */
@@ -175,7 +152,7 @@ public class PanelBaseHabitat extends JPanel implements MouseListener {
      * @param g the <code>Graphics</code> object to protect
      */
     @Override
-    public void paintComponent(Graphics g){ //modificar
+    public void paintComponent(Graphics g){
         super.paintComponent(g);
 
         if (panelHabitat != null) {

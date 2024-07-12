@@ -2,11 +2,7 @@ package GUI;
 
 import logica.habitat.Habitat;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.util.Locale;
 
 /**
  * Panel que representa un panel grande

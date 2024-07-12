@@ -30,7 +30,7 @@ public class PanelInfoAnimales extends JPanel {
     private void calcularPanelesHabitat() {
         setSizePanel();
         for (Animal animal : habitat.getAnimals()) {
-            PanelInfoAnimal panelAnimal = new PanelInfoAnimal(animal,habitat,this);
+            PanelInfoAnimal panelAnimal = new PanelInfoAnimal(animal,habitat);
             add(panelAnimal);
             cantidadPaneles++;
         }

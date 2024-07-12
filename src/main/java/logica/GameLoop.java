@@ -62,7 +62,6 @@ public class GameLoop implements Runnable {
                 }
             }
         }
-        System.out.println("lol");
     }
 
     /**

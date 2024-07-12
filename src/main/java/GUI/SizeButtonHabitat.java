@@ -73,9 +73,9 @@ public class SizeButtonHabitat extends JButton {
                 }
             }
             panel.setPosicionPanelHabitat(posicionPanelHabitat);
-            panel.addHabitat(habitatCreado);
+            panel.getPanelPrincipal().addHabitat(habitatCreado);
             panel.setPanelHabitat(panelHabitat);
-            panel.setPaneldibujar(null);
+            panel.getPanelPrincipal().setPanelDibujar(null);
 
             for (PanelBaseHabitat i : panel.getPanelPrincipal().getPaneles()) {
                 i.setSelected(false);

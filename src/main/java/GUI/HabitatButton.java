@@ -62,7 +62,7 @@ public class HabitatButton extends JButton implements ActionListener{
      */
     public void actionPerformed(ActionEvent ae) {
         PanelMenuSize menuSize = new PanelMenuSize(fabrica,panelBase,bioma);
-        panelBase.setPaneldibujar(menuSize);
+        panelBase.getPanelPrincipal().setPanelDibujar(menuSize);
     }
 
     /**

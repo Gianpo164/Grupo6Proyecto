@@ -57,7 +57,9 @@ public class PanelMenuInicial extends PanelMenu implements ActionListener{
         buttonPause.setToolTipText("Pausa/Renaudar");
 
         panelEditorHabitat = new PanelEditorHabitat(panelPrincipal.getPanelZoo(), habitats);
-        panelNotificaciones = new PanelNotificaciones(habitats);    //Asignar tamaño abajo
+        panelNotificaciones = new PanelNotificaciones(habitats);
+        panelNotificaciones.setBounds(17,514,464,350);
+
         add(buttonPause);
         add(titulo);
         add(panelEditorHabitat);

@@ -16,7 +16,6 @@ import java.io.IOException;
 public class PanelInfoAnimal extends JPanel{
     private Animal animal;
     private Image imagenInfoAnimal;
-    private PanelInfoAnimales panelInfoAnimales;    //Eliminar
     private Habitat habitat;
     private Font fuente;
     private JTextField nombre;
@@ -29,13 +28,11 @@ public class PanelInfoAnimal extends JPanel{
      * Crea el panel y asigna los componentes que se muestran
      * @param animal Animal del cual se mostrara informacion
      * @param habitat Habitat al cual pertenece el animal
-     * @param panelInfoAnimales Panel donde se encuentran todos los paneles de informacion de los animales del habitat
      */
-    public PanelInfoAnimal(Animal animal,Habitat habitat, PanelInfoAnimales panelInfoAnimales){
+    public PanelInfoAnimal(Animal animal,Habitat habitat){
         this.setLayout(null);
         this.animal = animal;
         this.habitat = habitat;
-        this.panelInfoAnimales = panelInfoAnimales;
         setPreferredSize(new Dimension(482,152));
         try {
             fuente = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/RetroGaming.ttf")).deriveFont(15f);
